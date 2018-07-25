@@ -1,5 +1,10 @@
 # SecureworksApp
 
+## Hosting
+This app is hosted in firebase [here](https://works-app-303e3.firebaseapp.com)
+
+## Generated
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server

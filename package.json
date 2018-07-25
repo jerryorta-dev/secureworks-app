@@ -10,6 +10,7 @@
     "lint": "gulp lint",
     "build.prod": "ng build --aot --prod",
     "copy.icons": "gulp copy.icons",
+    "deploy": "firebase deploy --only hosting",
     "serve": "ng serve",
     "serve.cc": "lite-server --config=coverage-server-cdk",
     "serve.prod": "ng serve --prod",
