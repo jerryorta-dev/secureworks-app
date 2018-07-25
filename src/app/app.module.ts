@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { HeaderModule } from './core/header/header.module';
+import { SwHeaderModule } from './core/header/sw-header.module';
+import { SwFriendsModule } from './features/sw-friends/sw-friends.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -10,7 +11,8 @@ import { HeaderModule } from './core/header/header.module';
     BrowserModule,
     BrowserAnimationsModule,
 
-    HeaderModule,
+    SwHeaderModule,
+    SwFriendsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

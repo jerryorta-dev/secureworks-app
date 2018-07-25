@@ -1,10 +1,10 @@
-import { HeaderModule } from './header.module';
+import { SwHeaderModule } from './sw-header.module';
 
-describe('HeaderModule', () => {
-  let headerModule: HeaderModule;
+describe('SwHeaderModule', () => {
+  let headerModule: SwHeaderModule;
 
   beforeEach(() => {
-    headerModule = new HeaderModule();
+    headerModule = new SwHeaderModule();
   });
 
   it('should create an instance', () => {

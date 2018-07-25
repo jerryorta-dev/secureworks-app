@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatToolbarModule } from '@angular/material';
 
-import { HeaderComponent } from './header.component';
+import { SwHeaderComponent } from './sw-header.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('SwHeaderComponent', () => {
+  let component: SwHeaderComponent;
+  let fixture: ComponentFixture<SwHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         MatToolbarModule,
       ],
-      declarations: [ HeaderComponent ]
+      declarations: [ SwHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(SwHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
