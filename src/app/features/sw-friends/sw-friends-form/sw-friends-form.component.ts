@@ -30,18 +30,10 @@ export class SwFriendsFormComponent implements OnInit {
 
   ngOnInit() {
     this.personalDataForm = this.buildFormGroup();
-    this.personalDataForm
-      .valueChanges
-      .subscribe((r: PersonalDataForm) => {
-        // stub
-        // console.log(r);
-      });
   }
 
 
   onSubmitHandler(): void {
-    // stub
-    // console.log(this.personalDataForm.value);
     this.onsubmit.next(this.personalDataForm.value);
   }
 
@@ -59,34 +51,8 @@ export class SwFriendsFormComponent implements OnInit {
     return this.fb.group(group);
   }
 
-  getErrorMessage(controlName: string) {
-    const control: AbstractControl = this.getControl(controlName);
-
-    // order of priority
-    if (control.hasError('required')) {
-      return 'You must enter a value';
-    } else if (control.hasError('maxlength')) {
-      return `Number Characters exceed ${control.errors.maxlength.requiredLength}`;
-    } else if (control.hasError('email')) {
-      return `Invalid email`;
-    } else {
-
-      // should never get to here
-      return 'Invalid value';
-    }
-  }
-
-  logControl(control: any): void {
-    console.log(control.controls.name);
-  }
-
-  checkValidControl(control: any, errorCode: string): boolean {
-    console.log(control);
+  isValid( control: any, errorCode: string): boolean {
     return control.dirty && control.invalid && control.hasError(errorCode);
-  }
-
-  getControl(controlName: string): AbstractControl {
-    return this.personalDataForm.controls[controlName];
   }
 
   reset(): void {
