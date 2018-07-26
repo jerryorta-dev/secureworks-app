@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { positiveIntegerValidator } from './validators/positive-integer.validator';
 import { positiveNumberValidator } from './validators/positive-number.validator';
 
-export interface PersonalDataForm {
+export interface PersonalData {
   name: string;
   friends: string;
   age: string;
@@ -22,7 +22,7 @@ export class SwPersonalFormComponent implements OnInit {
   personalDataForm: FormGroup;
   appearance = 'outline';
 
-  @Output() onsubmit: EventEmitter<PersonalDataForm> = new EventEmitter();
+  @Output() onsubmit: EventEmitter<PersonalData> = new EventEmitter();
   constructor(private fb: FormBuilder) {
   }
 
@@ -54,7 +54,7 @@ export class SwPersonalFormComponent implements OnInit {
   }
 
   reset(): void {
-    this.personalDataForm.reset(<PersonalDataForm>{
+    this.personalDataForm.reset(<PersonalData>{
       name: '',
       friends: '',
       age: '',

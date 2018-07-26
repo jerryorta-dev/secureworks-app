@@ -3,7 +3,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PersonalDataForm, SwPersonalFormComponent } from './sw-personal-form.component';
+import { PersonalData, SwPersonalFormComponent } from './sw-personal-form.component';
 
 describe('SwPersonalFormComponent', () => {
   let component: SwPersonalFormComponent;
@@ -53,7 +53,7 @@ describe('SwPersonalFormComponent', () => {
     component.personalDataForm.controls[ 'age' ].setValue('32');
     component.personalDataForm.controls[ 'weight' ].setValue('190');
 
-    let user: PersonalDataForm;
+    let user: PersonalData;
     // Subscribe to the Observable and store the user in a local variable.
     component.onsubmit.subscribe((value) => user = value);
 
