@@ -20,7 +20,13 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    // reporters: ['progress', 'kjhtml'],
+    reporters: ['dots'],
+    specReporter: {
+      maxLogLines: Infinity, // Log out the entire stack trace on errors and failures.
+      suppressSkipped: true,
+      showSpecTiming: true,
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

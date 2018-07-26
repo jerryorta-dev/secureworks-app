@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule, MatToolbarModule } from '@angular/material';
-import { HeaderComponent } from './header.component';
+import { SwHeaderComponent } from './sw-header.component';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { HeaderComponent } from './header.component';
     MatIconModule,
     MatToolbarModule,
   ],
-  declarations: [HeaderComponent],
-  exports: [HeaderComponent]
+  declarations: [SwHeaderComponent],
+  exports: [SwHeaderComponent]
 })
-export class HeaderModule { }
+export class SwHeaderModule { }
