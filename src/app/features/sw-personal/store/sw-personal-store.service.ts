@@ -31,4 +31,13 @@ export class SwPersonalStoreService {
     _store.items.splice(index, 1);
     this.store.next(_store);
   }
+
+  /**
+   * Clear items cache
+   */
+  clear(): void {
+    const _store: ChartStore = this.store.getValue();
+    _store.items = [];
+    this.store.next(_store);
+  }
 }

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SwChartContainerComponent } from './sw-chart-container.component';
+import { SwChartComponent } from './sw-chart/sw-chart.component';
 
 describe('SwChartContainerComponent', () => {
   let component: SwChartContainerComponent;
@@ -8,7 +9,10 @@ describe('SwChartContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SwChartContainerComponent],
+      declarations: [
+        SwChartComponent,
+        SwChartContainerComponent,
+      ],
     }).compileComponents();
   }));
 

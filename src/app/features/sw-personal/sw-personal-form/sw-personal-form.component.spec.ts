@@ -59,9 +59,9 @@ describe('SwPersonalFormComponent', () => {
     component.onSubmitHandler();
 
     expect(user.name).toBe('Jimmy Joe');
-    expect(user.friends).toBe('200');
-    expect(user.age).toBe('32');
-    expect(user.weight).toBe('190');
+    expect(user.friends).toBe(200);
+    expect(user.age).toBe(32);
+    expect(user.weight).toBe(190);
   });
 
   it('should error for required name', () => {

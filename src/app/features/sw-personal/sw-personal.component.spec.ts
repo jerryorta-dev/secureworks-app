@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SwPersonalStoreService } from './store/sw-personal-store.service';
+import { SwChartContainerComponent } from './sw-chart-container/sw-chart-container.component';
+import { SwChartComponent } from './sw-chart-container/sw-chart/sw-chart.component';
 import { SwPersonalFormComponent } from './sw-personal-form/sw-personal-form.component';
 
 import { SwPersonalComponent } from './sw-personal.component';
@@ -20,7 +23,15 @@ describe('SwPersonalComponent', () => {
         MatFormFieldModule,
         MatInputModule,
       ],
-      declarations: [SwPersonalComponent, SwPersonalFormComponent],
+      declarations: [
+        SwChartContainerComponent,
+        SwChartComponent,
+        SwPersonalComponent,
+        SwPersonalFormComponent,
+      ],
+      providers: [
+        SwPersonalStoreService
+      ]
     }).compileComponents();
   }));
 

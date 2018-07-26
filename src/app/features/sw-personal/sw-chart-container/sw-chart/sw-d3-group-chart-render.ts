@@ -5,10 +5,10 @@ import { Selection } from 'd3-selection';
 import { ChartStore } from '../../store/sw-personal-store.service';
 
 export class SwD3GroupChartRender {
-  static render(shadowRoot: ShadowRoot, store: ChartStore): void {
+  static render(el: HTMLElement, store: ChartStore): void {
     const data = store.items;
 
-    const domSvg: SVGSVGElement = shadowRoot.querySelector('svg') as SVGSVGElement;
+    const domSvg: SVGSVGElement = el.querySelector('svg') as SVGSVGElement;
 
     const svg: Selection<any, any, HTMLElement, any> = d3.select(domSvg);
 

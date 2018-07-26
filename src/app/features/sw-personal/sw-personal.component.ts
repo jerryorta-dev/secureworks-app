@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ChartStore, SwPersonalStoreService } from './store/sw-personal-store.service';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { SwPersonalStoreService } from './store/sw-personal-store.service';
 import { PersonalData } from './sw-personal-form/sw-personal-form.component';
 
 @Component({
@@ -10,14 +10,8 @@ import { PersonalData } from './sw-personal-form/sw-personal-form.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwPersonalComponent implements OnInit {
+export class SwPersonalComponent {
   constructor(private storeService: SwPersonalStoreService) {}
-
-  ngOnInit() {
-    this.storeService.store.subscribe((r: ChartStore) => {
-      console.log(r);
-    });
-  }
 
   onSubmit(data: PersonalData): void {
     this.storeService.add(data);
