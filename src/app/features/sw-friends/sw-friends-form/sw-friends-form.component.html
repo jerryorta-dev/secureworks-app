@@ -1,8 +1,7 @@
 <form class="personal-data-form" [formGroup]="personalDataForm" (ngSubmit)="onSubmitHandler()">
 
   <!-- Name -->
-  <mat-form-field [floatLabel]="floatLabel"
-                  [appearance]="appearance"
+  <mat-form-field [appearance]="appearance"
                   hintLabel="Max 50 characters">
     <mat-label>Your Name</mat-label>
     <input matInput #name formControlName="name" placeholder="Your Name">
@@ -16,8 +15,7 @@
   </mat-form-field>
 
   <!-- Age -->
-  <mat-form-field [floatLabel]="floatLabel"
-                  [appearance]="appearance">
+  <mat-form-field [appearance]="appearance">
     <mat-label>Your Age</mat-label>
     <input matInput #age formControlName="age" placeholder="Your Age">
     <mat-error *ngIf="isValid(personalDataForm.controls['age'], 'required')">
@@ -29,8 +27,7 @@
   </mat-form-field>
 
   <!-- Weight -->
-  <mat-form-field [floatLabel]="floatLabel"
-                  [appearance]="appearance">
+  <mat-form-field [appearance]="appearance">
     <mat-label>Your Weight</mat-label>
     <input matInput #weight formControlName="weight" placeholder="Your Weight">
     <mat-error *ngIf="isValid(personalDataForm.controls['weight'], 'required')">
@@ -42,8 +39,7 @@
   </mat-form-field>
 
   <!-- Friends -->
-  <mat-form-field [floatLabel]="floatLabel"
-                  [appearance]="appearance"
+  <mat-form-field [appearance]="appearance"
                   hintLabel="How Many Friends Do You Have?">
     <mat-label>Friends</mat-label>
     <input matInput #weight formControlName="friends" placeholder="0" type="number">

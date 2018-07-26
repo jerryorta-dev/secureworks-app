@@ -20,8 +20,6 @@ export interface PersonalDataForm {
            })
 export class SwFriendsFormComponent implements OnInit {
   personalDataForm: FormGroup;
-
-  floatLabel = 'always';
   appearance = 'outline';
 
   @Output() onsubmit: EventEmitter<PersonalDataForm> = new EventEmitter();
