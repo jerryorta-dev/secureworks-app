@@ -27,6 +27,7 @@ export class SwGroupBarChartContainerComponent implements AfterViewInit, OnDestr
 
   ngAfterViewInit() {
     this.storeSub = this.storeService.store.subscribe((result: ChartStore) => {
+      /* istanbul ignore else */
       if (result.items.length) {
         this.groupGroupBarChart.renderD3(result);
       }

@@ -9,10 +9,7 @@ describe('SwGroupBarChartContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        SwGroupBarChartComponent,
-        SwGroupBarChartContainerComponent,
-      ],
+      declarations: [SwGroupBarChartComponent, SwGroupBarChartContainerComponent],
     }).compileComponents();
   }));
 

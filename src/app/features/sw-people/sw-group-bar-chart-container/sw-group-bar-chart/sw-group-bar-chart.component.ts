@@ -32,6 +32,7 @@ export class SwGroupBarChartComponent {
    * Called when component loads and in ngOnChanges
    */
   renderD3(data: ChartStore): void {
+    /* istanbul ignore else */
     if (data && data.items && data.items.length) {
       SwD3GroupChartRender.render(this.el.nativeElement, data);
     }

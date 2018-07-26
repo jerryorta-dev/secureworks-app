@@ -7,7 +7,7 @@ export interface ChartStore {
   columns: string[];
 }
 
-const intialStore: ChartStore = {
+export const intialChartStore: ChartStore = {
   items: [],
   columns: ['name', 'age', 'weight', 'friends'],
 };
@@ -17,7 +17,7 @@ const intialStore: ChartStore = {
 })
 export class SwPersonalStoreService {
   // Names of groups appearing in a group chart
-  store: BehaviorSubject<ChartStore> = new BehaviorSubject(intialStore);
+  store: BehaviorSubject<ChartStore> = new BehaviorSubject(intialChartStore);
 
   add(val: PersonalData): void {
     const _store: ChartStore = this.store.getValue();

@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -35,7 +34,7 @@ export interface PersonalData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwPersonalFormComponent implements OnInit {
-  personalDataForm: FormGroup;
+  personDataForm: FormGroup;
   appearance = 'outline';
 
   @Output() onsubmit: EventEmitter<PersonalData> = new EventEmitter();
@@ -50,11 +49,12 @@ export class SwPersonalFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.personalDataForm = this.buildFormGroup();
+    this.personDataForm = this.buildFormGroup();
   }
 
   onSubmitHandler(): void {
-    if (this.personalDataForm.valid) {
+    /* istanbul ignore else */
+    if (this.personDataForm.valid) {
       // The input fields are typed as text instead
       // of number just for aesthetics -- I don't like how
       // the number suffix control looks or functions
@@ -64,10 +64,10 @@ export class SwPersonalFormComponent implements OnInit {
 
       // This also works better for chart data
       const payload: PersonalData = {
-        name: this.personalDataForm.value.name,
-        age: Number(this.personalDataForm.value.age),
-        weight: Number(this.personalDataForm.value.weight),
-        friends: Number(this.personalDataForm.value.friends),
+        name: this.personDataForm.value.name,
+        age: Number(this.personDataForm.value.age),
+        weight: Number(this.personDataForm.value.weight),
+        friends: Number(this.personDataForm.value.friends),
       };
 
       this.onsubmit.next(payload);
@@ -88,7 +88,26 @@ export class SwPersonalFormComponent implements OnInit {
     return this.fb.group(group);
   }
 
-  hasError(control: any, errorCode: string): boolean {
+  /**
+   *
+   * @param control
+   * One FromControl from the FormGroup such this.personDataForm.controls['friends'].
+   *
+   * The FormControl as the 'hasError' method which you pass an 'errorCode'.
+   *
+   * @param errorCode
+   * Property in Validator object which contains the error value ( not
+   * error message ).
+   *
+   * For example, if the 'positiveIntegerValidator' validator returns an error object
+   * for the 'friends' FormControl, the object will look like:
+   *
+   * {
+   *   positiveInteger: 10, // <-- sample value
+   * }
+   *
+   */
+  hasError(control: AbstractControl, errorCode: string): boolean {
     return control.dirty && control.invalid && control.hasError(errorCode);
   }
 

@@ -15,7 +15,6 @@ describe('SwPersonalStoreService', () => {
   }));
 
   it('should add items', inject([SwPersonalStoreService], (service: SwPersonalStoreService) => {
-
     // clear items store
     service.clear();
 
@@ -55,7 +54,6 @@ describe('SwPersonalStoreService', () => {
   }));
 
   it('should remove items', inject([SwPersonalStoreService], (service: SwPersonalStoreService) => {
-
     // clear items store
     service.clear();
 
