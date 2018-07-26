@@ -7,11 +7,11 @@ import { SwChartContainerComponent } from './sw-chart-container/sw-chart-contain
 import { SwChartComponent } from './sw-chart-container/sw-chart/sw-chart.component';
 import { SwPersonalFormComponent } from './sw-personal-form/sw-personal-form.component';
 
-import { SwPersonalComponent } from './sw-personal.component';
+import { SwPeopleComponent } from './sw-people.component';
 
-describe('SwPersonalComponent', () => {
-  let component: SwPersonalComponent;
-  let fixture: ComponentFixture<SwPersonalComponent>;
+describe('SwPeopleComponent', () => {
+  let component: SwPeopleComponent;
+  let fixture: ComponentFixture<SwPeopleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,7 +26,7 @@ describe('SwPersonalComponent', () => {
       declarations: [
         SwChartContainerComponent,
         SwChartComponent,
-        SwPersonalComponent,
+        SwPeopleComponent,
         SwPersonalFormComponent,
       ],
       providers: [
@@ -36,7 +36,7 @@ describe('SwPersonalComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SwPersonalComponent);
+    fixture = TestBed.createComponent(SwPeopleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
