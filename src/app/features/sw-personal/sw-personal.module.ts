@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SwPersonalStoreService } from './store/sw-personal-store.service';
 import { SwPersonalComponent } from './sw-personal.component';
 import { SwPersonalFormComponent } from './sw-personal-form/sw-personal-form.component';
+import { SwChartContainerComponent } from './sw-chart-container/sw-chart-container.component';
+import { SwChartComponent } from './sw-chart-container/sw-chart/sw-chart.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import { SwPersonalFormComponent } from './sw-personal-form/sw-personal-form.com
   providers: [
     SwPersonalStoreService,
   ],
-  declarations: [SwPersonalComponent, SwPersonalFormComponent],
+  declarations: [SwPersonalComponent, SwPersonalFormComponent, SwChartContainerComponent, SwChartComponent],
   exports: [SwPersonalComponent]
 })
 export class SwPersonalModule { }
