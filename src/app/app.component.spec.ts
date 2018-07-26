@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { SwHeaderModule } from './core/header/sw-header.module';
-import { SwFriendsModule } from './features/sw-friends/sw-friends.module';
+import { SwPersonalModule } from './features/sw-personal/sw-personal.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         SwHeaderModule,
-        SwFriendsModule,
+        SwPersonalModule,
       ],
       declarations: [AppComponent],
     }).compileComponents();

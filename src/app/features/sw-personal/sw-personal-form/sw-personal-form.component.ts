@@ -11,14 +11,14 @@ export interface PersonalDataForm {
 }
 
 @Component({
-             selector: 'sw-friends-form',
-             templateUrl: './sw-friends-form.component.html',
-             styleUrls: [ './sw-friends-form.component.scss' ],
+             selector: 'sw-personal-form',
+             templateUrl: './sw-personal-form.component.html',
+             styleUrls: [ './sw-personal-form.component.scss' ],
              preserveWhitespaces: false,
              encapsulation: ViewEncapsulation.None,
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
-export class SwFriendsFormComponent implements OnInit {
+export class SwPersonalFormComponent implements OnInit {
   personalDataForm: FormGroup;
   appearance = 'outline';
 

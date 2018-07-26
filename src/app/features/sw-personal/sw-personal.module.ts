@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SwFriendsComponent } from './sw-friends.component';
-import { SwFriendsFormComponent } from './sw-friends-form/sw-friends-form.component';
+import { SwPersonalComponent } from './sw-personal.component';
+import { SwPersonalFormComponent } from './sw-personal-form/sw-personal-form.component';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SwFriendsFormComponent } from './sw-friends-form/sw-friends-form.compon
     MatFormFieldModule,
     MatInputModule,
   ],
-  declarations: [SwFriendsComponent, SwFriendsFormComponent],
-  exports: [SwFriendsComponent]
+  declarations: [SwPersonalComponent, SwPersonalFormComponent],
+  exports: [SwPersonalComponent]
 })
-export class SwFriendsModule { }
+export class SwPersonalModule { }

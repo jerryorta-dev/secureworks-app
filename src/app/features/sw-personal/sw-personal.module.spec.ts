@@ -1,10 +1,10 @@
-import { SwFriendsModule } from './sw-friends.module';
+import { SwPersonalModule } from './sw-personal.module';
 
 describe('SwFriendsModule', () => {
-  let swFriendsModule: SwFriendsModule;
+  let swFriendsModule: SwPersonalModule;
 
   beforeEach(() => {
-    swFriendsModule = new SwFriendsModule();
+    swFriendsModule = new SwPersonalModule();
   });
 
   it('should create an instance', () => {

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { SwHeaderModule } from './core/header/sw-header.module';
-import { SwFriendsModule } from './features/sw-friends/sw-friends.module';
+import { SwPersonalModule } from './features/sw-personal/sw-personal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +12,7 @@ import { SwFriendsModule } from './features/sw-friends/sw-friends.module';
     BrowserAnimationsModule,
 
     SwHeaderModule,
-    SwFriendsModule,
+    SwPersonalModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

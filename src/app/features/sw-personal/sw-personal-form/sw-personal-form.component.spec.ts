@@ -2,13 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SwFriendsFormComponent } from './sw-friends-form/sw-friends-form.component';
 
-import { SwFriendsComponent } from './sw-friends.component';
+import { SwPersonalFormComponent } from './sw-personal-form.component';
 
-describe('SwFriendsComponent', () => {
-  let component: SwFriendsComponent;
-  let fixture: ComponentFixture<SwFriendsComponent>;
+describe('SwPersonalFormComponent', () => {
+  let component: SwPersonalFormComponent;
+  let fixture: ComponentFixture<SwPersonalFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,16 +19,13 @@ describe('SwFriendsComponent', () => {
         MatFormFieldModule,
         MatInputModule,
       ],
-      declarations: [
-        SwFriendsComponent,
-        SwFriendsFormComponent,
-      ],
+      declarations: [ SwPersonalFormComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SwFriendsComponent);
+    fixture = TestBed.createComponent(SwPersonalFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
