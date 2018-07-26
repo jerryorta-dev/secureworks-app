@@ -1,5 +1,15 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { positiveIntegerValidator } from './validators/positive-integer.validator';
 import { positiveNumberValidator } from './validators/positive-number.validator';
 
@@ -24,6 +34,13 @@ export class SwPersonalFormComponent implements OnInit {
 
   @Output() onsubmit: EventEmitter<PersonalData> = new EventEmitter();
 
+  /**
+   * User to reset form,
+   * FormGroups have an issue resetting forms in that they only
+   * reset the data, but not the state ( prisitine, untouched, etc ).
+   */
+  @ViewChild(FormGroupDirective) formRef: FormGroupDirective ;
+
   constructor(private fb: FormBuilder,
               private cd: ChangeDetectorRef) {
   }
@@ -31,7 +48,6 @@ export class SwPersonalFormComponent implements OnInit {
   ngOnInit() {
     this.personalDataForm = this.buildFormGroup();
   }
-
 
   onSubmitHandler(): void {
     if (this.personalDataForm.valid) {
@@ -59,15 +75,8 @@ export class SwPersonalFormComponent implements OnInit {
   }
 
   reset(): void {
-    this.personalDataForm.reset(<PersonalData>{
-      name: '',
-      friends: '',
-      age: '',
-      weight: ''
-    });
-
-    this.personalDataForm.markAsPristine();
-    this.cd.detectChanges();
+    // from @ViewChild
+    this.formRef.resetForm();
   }
 
 }

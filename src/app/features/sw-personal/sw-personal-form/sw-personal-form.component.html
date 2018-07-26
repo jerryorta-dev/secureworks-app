@@ -1,10 +1,10 @@
-<form class="personal-data-form" [formGroup]="personalDataForm" (ngSubmit)="onSubmitHandler()">
+<form class="personal-data-form" novalidate #formRef [formGroup]="personalDataForm" (ngSubmit)="onSubmitHandler()">
 
   <!-- Name -->
   <mat-form-field [appearance]="appearance"
                   hintLabel="Max 50 characters">
-    <mat-label>Your Name</mat-label>
-    <input matInput #name formControlName="name" placeholder="Your Name">
+    <mat-label>Name</mat-label>
+    <input matInput #name formControlName="name" placeholder="Name">
     <mat-error *ngIf="hasError(personalDataForm.controls['name'], 'required')">
       Name is required
     </mat-error>
@@ -16,8 +16,8 @@
 
   <!-- Age -->
   <mat-form-field [appearance]="appearance">
-    <mat-label>Your Age</mat-label>
-    <input matInput #age formControlName="age" placeholder="Your Age" type="number">
+    <mat-label>Age</mat-label>
+    <input matInput #age formControlName="age" placeholder="Age" type="number">
     <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'required')">
       Age is required
     </mat-error>
@@ -28,8 +28,8 @@
 
   <!-- Weight -->
   <mat-form-field [appearance]="appearance">
-    <mat-label>Your Weight</mat-label>
-    <input matInput #weight formControlName="weight" placeholder="Your Weight" type="number">
+    <mat-label>Weight</mat-label>
+    <input matInput #weight formControlName="weight" placeholder="Weight" type="number">
     <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'required')">
       Age is required
     </mat-error>
@@ -40,7 +40,7 @@
 
   <!-- Friends -->
   <mat-form-field [appearance]="appearance"
-                  hintLabel="How Many Friends Do You Have?">
+                  hintLabel="How Many Friends?">
     <mat-label>Friends</mat-label>
     <input matInput #weight formControlName="friends" placeholder="0" type="number">
     <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'required')">
