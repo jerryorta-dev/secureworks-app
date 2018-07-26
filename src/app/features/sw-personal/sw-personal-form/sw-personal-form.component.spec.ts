@@ -47,7 +47,7 @@ describe('SwPersonalFormComponent', () => {
     expect(component.personalDataForm.invalid).toBe(true);
   });
 
-  it('should submit personal data', () => {
+  it('should submit personal items', () => {
     component.personalDataForm.controls[ 'name' ].setValue('Jimmy Joe');
     component.personalDataForm.controls[ 'friends' ].setValue('200');
     component.personalDataForm.controls[ 'age' ].setValue('32');

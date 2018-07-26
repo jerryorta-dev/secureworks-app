@@ -2,26 +2,35 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PersonalData } from '../sw-personal-form/sw-personal-form.component';
 
+export interface ChartStore {
+  items: PersonalData[];
+  columns: string[];
+}
+
+const intialStore: ChartStore = {
+  items: [],
+  columns: ['name', 'age', 'weight', 'friends'],
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class SwPersonalStoreService {
 
-  store: BehaviorSubject<PersonalData[]> = new BehaviorSubject(null);
+  // Names of groups appearing in a group chart
+  store: BehaviorSubject<ChartStore> = new BehaviorSubject(intialStore);
 
   add( val: PersonalData ): void {
-    let _data: PersonalData[] = this.store.getValue();
-    _data = _data && _data.length ? _data : [];
-    _data.push(val);
-    this.store.next(_data);
+    const _store: ChartStore = this.store.getValue();
+    _store.items.push(val);
+    this.store.next(_store);
   }
 
   remove(index: number): void {
-    let _data: PersonalData[] = this.store.getValue();
-    // should have data if using this method
-    _data = _data && _data.length ? _data : [];
-    _data.splice(index, 1);
-    this.store.next(_data);
+    const _store: ChartStore = this.store.getValue();
+    // should have items if using this method
+    _store.items.splice(index, 1);
+    this.store.next(_store);
   }
 
 }

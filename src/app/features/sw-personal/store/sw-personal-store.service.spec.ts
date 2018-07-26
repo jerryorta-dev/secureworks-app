@@ -14,7 +14,7 @@ describe('SwPersonalStoreService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should add data', inject([SwPersonalStoreService], (service: SwPersonalStoreService) => {
+  it('should add items', inject([SwPersonalStoreService], (service: SwPersonalStoreService) => {
     let data: PersonalData[];
     service.store.subscribe((result: PersonalData[]) => {
       data = result;
@@ -50,7 +50,7 @@ describe('SwPersonalStoreService', () => {
     expect(data[2]).toEqual(jasmine.objectContaining(test3));
   }));
 
-  it('should remove data', inject([SwPersonalStoreService], (service: SwPersonalStoreService) => {
+  it('should remove items', inject([SwPersonalStoreService], (service: SwPersonalStoreService) => {
     let data: PersonalData[];
     service.store.subscribe((result: PersonalData[]) => {
       data = result;

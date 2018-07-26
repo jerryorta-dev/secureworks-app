@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { positiveIntegerValidator } from './validators/positive-integer.validator';
 import { positiveNumberValidator } from './validators/positive-number.validator';
 
 export interface PersonalData {
   name: string;
-  friends: string;
   age: string;
   weight: string;
+  friends: string;
 }
 
 @Component({
@@ -23,7 +23,9 @@ export class SwPersonalFormComponent implements OnInit {
   appearance = 'outline';
 
   @Output() onsubmit: EventEmitter<PersonalData> = new EventEmitter();
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder,
+              private cd: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -65,6 +67,7 @@ export class SwPersonalFormComponent implements OnInit {
     });
 
     this.personalDataForm.markAsPristine();
+    this.cd.detectChanges();
   }
 
 }

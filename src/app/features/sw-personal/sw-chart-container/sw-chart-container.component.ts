@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { SwPersonalStoreService } from '../store/sw-personal-store.service';
-import { PersonalData } from '../sw-personal-form/sw-personal-form.component';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ChartStore, SwPersonalStoreService } from '../store/sw-personal-store.service';
+import { SwChartComponent } from './sw-chart/sw-chart.component';
 
 @Component({
   selector: 'sw-chart-container',
@@ -10,23 +11,26 @@ import { PersonalData } from '../sw-personal-form/sw-personal-form.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwChartContainerComponent implements OnInit {
+export class SwChartContainerComponent implements AfterViewInit, OnDestroy {
 
-  data: PersonalData[] = [];
+  private storeSub: Subscription = Subscription.EMPTY;
 
-  constructor(private storeService: SwPersonalStoreService,
-              private cd: ChangeDetectorRef) {
+  @ViewChild('groupChart') groupChart: SwChartComponent;
+
+  constructor(private storeService: SwPersonalStoreService) {
   }
 
-  ngOnInit() {
-    this.storeService.store
-      .subscribe((result: PersonalData[]) => {
-        if (result) {
-          this.data = result;
-          this.cd.detectChanges();
+  ngAfterViewInit() {
+    this.storeSub = this.storeService.store
+      .subscribe((result: ChartStore) => {
+        if (result.items.length) {
+          this.groupChart.renderD3(result);
         }
       });
+  }
 
+  ngOnDestroy(): void {
+    this.storeSub.unsubscribe();
   }
 
 }
