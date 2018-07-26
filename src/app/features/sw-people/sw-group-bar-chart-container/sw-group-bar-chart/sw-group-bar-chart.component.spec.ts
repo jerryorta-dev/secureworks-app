@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwChartComponent } from './sw-chart.component';
+import { SwGroupBarChartComponent } from './sw-group-bar-chart.component';
 
-describe('SwChartComponent', () => {
-  let component: SwChartComponent;
-  let fixture: ComponentFixture<SwChartComponent>;
+describe('SwGroupBarChartComponent', () => {
+  let component: SwGroupBarChartComponent;
+  let fixture: ComponentFixture<SwGroupBarChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SwChartComponent],
+      declarations: [SwGroupBarChartComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SwChartComponent);
+    fixture = TestBed.createComponent(SwGroupBarChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

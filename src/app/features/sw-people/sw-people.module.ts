@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SwPersonalStoreService } from './store/sw-personal-store.service';
 import { SwPeopleComponent } from './sw-people.component';
 import { SwPersonalFormComponent } from './sw-personal-form/sw-personal-form.component';
-import { SwChartContainerComponent } from './sw-chart-container/sw-chart-container.component';
-import { SwChartComponent } from './sw-chart-container/sw-chart/sw-chart.component';
+import { SwGroupBarChartContainerComponent } from './sw-group-bar-chart-container/sw-group-bar-chart-container.component';
+import { SwGroupBarChartComponent } from './sw-group-bar-chart-container/sw-group-bar-chart/sw-group-bar-chart.component';
 
 @NgModule({
   imports: [
@@ -22,8 +22,8 @@ import { SwChartComponent } from './sw-chart-container/sw-chart/sw-chart.compone
   declarations: [
     SwPeopleComponent,
     SwPersonalFormComponent,
-    SwChartContainerComponent,
-    SwChartComponent,
+    SwGroupBarChartContainerComponent,
+    SwGroupBarChartComponent,
   ],
   exports: [SwPeopleComponent],
 })

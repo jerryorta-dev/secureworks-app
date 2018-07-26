@@ -15,15 +15,15 @@ import { PersonalData } from '../../sw-personal-form/sw-personal-form.component'
 import { SwD3GroupChartRender } from './sw-d3-group-chart-render';
 
 @Component({
-  selector: 'sw-chart',
-  templateUrl: './sw-chart.component.html',
-  styleUrls: ['./sw-chart.component.scss'],
+  selector: 'sw-group-bar-chart',
+  templateUrl: './sw-group-bar-chart.component.html',
+  styleUrls: ['./sw-group-bar-chart.component.scss'],
   preserveWhitespaces: false,
 
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwChartComponent {
+export class SwGroupBarChartComponent {
   private chartSelector = '.sw-bar-chart';
 
   constructor(private el: ElementRef) {}
