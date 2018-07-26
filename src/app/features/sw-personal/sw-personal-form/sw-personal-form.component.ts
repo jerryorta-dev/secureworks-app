@@ -15,9 +15,9 @@ import { positiveNumberValidator } from './validators/positive-number.validator'
 
 export interface PersonalData {
   name: string;
-  age: string;
-  weight: string;
-  friends: string;
+  age: number;
+  weight: number;
+  friends: number;
 }
 
 @Component({
@@ -51,7 +51,23 @@ export class SwPersonalFormComponent implements OnInit {
 
   onSubmitHandler(): void {
     if (this.personalDataForm.valid) {
-      this.onsubmit.next(this.personalDataForm.value);
+
+      // The input fields are typed as text instead
+      // of number just for aesthetics -- I don't like how
+      // the number suffix control looks or functions
+      // for <input type="number" ...
+
+      // Convert number values from String to Number
+
+      // This also works better for chart data
+      const payload: PersonalData = {
+        name: this.personalDataForm.value.name,
+        age: Number(this.personalDataForm.value.age),
+        weight: Number(this.personalDataForm.value.weight),
+        friends: Number(this.personalDataForm.value.friends),
+      };
+
+      this.onsubmit.next(payload);
       this.reset();
     }
   }

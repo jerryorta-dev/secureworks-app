@@ -14,48 +14,50 @@
     <mat-hint align="end">{{name.value?.length || 0}}/50</mat-hint>
   </mat-form-field>
 
-  <!-- Age -->
-  <mat-form-field [appearance]="appearance">
-    <mat-label>Age</mat-label>
-    <input matInput #age formControlName="age" placeholder="Age" type="number">
-    <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'required')">
-      Age is required
-    </mat-error>
-    <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'positiveInteger')">
-      Invalid Number Value
-    </mat-error>
-  </mat-form-field>
+  <div class="stats">
+    <!-- Age -->
+    <mat-form-field [appearance]="appearance">
+      <mat-label>Age</mat-label>
+      <input matInput #age formControlName="age" placeholder="0">
+      <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'required')">
+        Age is required
+      </mat-error>
+      <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'positiveInteger')">
+        Invalid Number Value
+      </mat-error>
+    </mat-form-field>
 
-  <!-- Weight -->
-  <mat-form-field [appearance]="appearance">
-    <mat-label>Weight</mat-label>
-    <input matInput #weight formControlName="weight" placeholder="Weight" type="number">
-    <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'required')">
-      Age is required
-    </mat-error>
-    <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'positiveNumber')">
-      Invalid Number Value
-    </mat-error>
-  </mat-form-field>
+    <!-- Weight -->
+    <mat-form-field [appearance]="appearance">
+      <mat-label>Weight</mat-label>
+      <input matInput #weight formControlName="weight" placeholder="0">
+      <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'required')">
+        Age is required
+      </mat-error>
+      <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'positiveNumber')">
+        Invalid Number Value
+      </mat-error>
+    </mat-form-field>
 
-  <!-- Friends -->
-  <mat-form-field [appearance]="appearance"
-                  hintLabel="How Many Friends?">
-    <mat-label>Friends</mat-label>
-    <input matInput #weight formControlName="friends" placeholder="0" type="number">
-    <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'required')">
-      Age is required
-    </mat-error>
-    <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'positiveInteger')">
-      Invalid Number Value
-    </mat-error>
-  </mat-form-field>
+    <!-- Friends -->
+    <mat-form-field [appearance]="appearance"
+                    hintLabel="How Many Friends?">
+      <mat-label>Friends</mat-label>
+      <input matInput #weight formControlName="friends" placeholder="0">
+      <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'required')">
+        Age is required
+      </mat-error>
+      <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'positiveInteger')">
+        Invalid Number Value
+      </mat-error>
+    </mat-form-field>
+  </div>
 
   <div class="actions">
     <button mat-raised-button
             color="primary"
             class="reset"
-            [disabled]="personalDataForm.invalid"
+            [disabled]="personalDataForm.pristine"
             (click)="reset()">Reset
     </button>
     <button mat-raised-button
