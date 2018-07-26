@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SwPersonalStoreService } from './store/sw-personal-store.service';
+import { PersonalData } from './sw-personal-form/sw-personal-form.component';
 
 @Component({
              selector: 'sw-personal',
@@ -10,10 +12,16 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
            })
 export class SwPersonalComponent implements OnInit {
 
-  constructor() {
+  constructor(private storeService: SwPersonalStoreService) {
   }
 
   ngOnInit() {
+    this.storeService.store
+      .subscribe((r: PersonalData[]) => { console.log(r); });
+  }
+
+  onSubmit(data: PersonalData): void {
+    this.storeService.add(data);
   }
 
 }

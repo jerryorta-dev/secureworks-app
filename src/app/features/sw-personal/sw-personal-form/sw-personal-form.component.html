@@ -51,5 +51,18 @@
     </mat-error>
   </mat-form-field>
 
+  <div class="actions">
+    <button mat-raised-button
+            color="primary"
+            class="reset"
+            [disabled]="personalDataForm.invalid"
+            (click)="reset()">Reset
+    </button>
+    <button mat-raised-button
+            type="submit"
+            [disabled]="personalDataForm.invalid"
+            color="primary">Add
+    </button>
+  </div>
 
 </form>

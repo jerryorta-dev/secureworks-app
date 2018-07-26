@@ -32,7 +32,10 @@ export class SwPersonalFormComponent implements OnInit {
 
 
   onSubmitHandler(): void {
-    this.onsubmit.next(this.personalDataForm.value);
+    if (this.personalDataForm.valid) {
+      this.onsubmit.next(this.personalDataForm.value);
+      this.reset();
+    }
   }
 
   buildFormGroup(): FormGroup {
@@ -60,6 +63,8 @@ export class SwPersonalFormComponent implements OnInit {
       age: '',
       weight: ''
     });
+
+    this.personalDataForm.markAsPristine();
   }
 
 }
