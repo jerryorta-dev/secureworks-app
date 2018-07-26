@@ -9,12 +9,9 @@ describe('SwHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        MatToolbarModule,
-      ],
-      declarations: [ SwHeaderComponent ]
-    })
-    .compileComponents();
+      imports: [MatToolbarModule],
+      declarations: [SwHeaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -26,4 +23,14 @@ describe('SwHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render header', async(() => {
+    fixture = TestBed.createComponent(SwHeaderComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('mat-toolbar').textContent).toContain(
+      'SecureWorks Challenge App'
+    );
+  }));
 });

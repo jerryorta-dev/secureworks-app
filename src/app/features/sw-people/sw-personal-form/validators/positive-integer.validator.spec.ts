@@ -1,57 +1,54 @@
 import { AbstractControl } from '@angular/forms';
-import { positiveNumberValidator } from './positive-number.validator';
+import { positiveIntegerValidator } from './positive-integer.validator';
 
 describe('Positive Integer Validator', () => {
-  const validatorFn = positiveNumberValidator();
+  const validatorFn = positiveIntegerValidator();
 
   describe('is invalid', () => {
     it('for alpha characters', () => {
       const control = { value: 'abc' };
       const result = validatorFn(control as AbstractControl);
 
-      expect(result.positiveNumber.value).toBe('abc');
+      expect(result.positiveInteger.value).toBe('abc');
     });
 
     it('for negative number', () => {
       const control = { value: '-1' };
       const result = validatorFn(control as AbstractControl);
 
-      expect(result.positiveNumber.value).toBe('-1');
+      expect(result.positiveInteger.value).toBe('-1');
+    });
+
+    it('for decimal number', () => {
+      const control = { value: '32.2' };
+      const result = validatorFn(control as AbstractControl);
+
+      expect(result.positiveInteger.value).toBe('32.2');
     });
 
     it('for negative decimal number', () => {
       const control = { value: '-32.2' };
       const result = validatorFn(control as AbstractControl);
 
-      expect(result.positiveNumber.value).toBe('-32.2');
+      expect(result.positiveInteger.value).toBe('-32.2');
     });
 
     it('for octal number', () => {
       const control = { value: '0x123456' };
       const result = validatorFn(control as AbstractControl);
 
-      expect(result.positiveNumber.value).toBe('0x123456');
+      expect(result.positiveInteger.value).toBe('0x123456');
     });
 
     it('for hex number', () => {
       const control = { value: '#FFAA00' };
       const result = validatorFn(control as AbstractControl);
 
-      expect(result.positiveNumber.value).toBe('#FFAA00');
+      expect(result.positiveInteger.value).toBe('#FFAA00');
     });
   });
 
-
-
   describe('is valid', () => {
-
-    it('for decimal number', () => {
-      const control = { value: '32.2' };
-      const result = validatorFn(control as AbstractControl);
-
-      expect(result).toBeNull();
-    });
-
     it('for number string', () => {
       const control = { value: '1' };
       const result = validatorFn(control as AbstractControl);
@@ -76,8 +73,5 @@ describe('Positive Integer Validator', () => {
 
       expect(result).toBeNull();
     });
-
   });
-
-
 });
