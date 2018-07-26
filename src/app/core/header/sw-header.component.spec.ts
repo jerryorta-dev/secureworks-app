@@ -9,12 +9,9 @@ describe('SwHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        MatToolbarModule,
-      ],
-      declarations: [ SwHeaderComponent ]
-    })
-    .compileComponents();
+      imports: [MatToolbarModule],
+      declarations: [SwHeaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -9,10 +9,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Lint
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
+run `yarn lint` or `npm run lint`. This will run prettier and then `ng lint`.
 
 ## Dev Build
 

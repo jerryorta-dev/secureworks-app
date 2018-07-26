@@ -9,7 +9,13 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  FormGroupDirective,
+  Validators,
+} from '@angular/forms';
 import { positiveIntegerValidator } from './validators/positive-integer.validator';
 import { positiveNumberValidator } from './validators/positive-number.validator';
 
@@ -21,13 +27,13 @@ export interface PersonalData {
 }
 
 @Component({
-             selector: 'sw-personal-form',
-             templateUrl: './sw-personal-form.component.html',
-             styleUrls: [ './sw-personal-form.component.scss' ],
-             preserveWhitespaces: false,
-             encapsulation: ViewEncapsulation.None,
-             changeDetection: ChangeDetectionStrategy.OnPush,
-           })
+  selector: 'sw-personal-form',
+  templateUrl: './sw-personal-form.component.html',
+  styleUrls: ['./sw-personal-form.component.scss'],
+  preserveWhitespaces: false,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class SwPersonalFormComponent implements OnInit {
   personalDataForm: FormGroup;
   appearance = 'outline';
@@ -39,11 +45,9 @@ export class SwPersonalFormComponent implements OnInit {
    * FormGroups have an issue resetting forms in that they only
    * reset the data, but not the state ( prisitine, untouched, etc ).
    */
-  @ViewChild(FormGroupDirective) formRef: FormGroupDirective ;
+  @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
 
-  constructor(private fb: FormBuilder,
-              private cd: ChangeDetectorRef) {
-  }
+  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.personalDataForm = this.buildFormGroup();
@@ -51,7 +55,6 @@ export class SwPersonalFormComponent implements OnInit {
 
   onSubmitHandler(): void {
     if (this.personalDataForm.valid) {
-
       // The input fields are typed as text instead
       // of number just for aesthetics -- I don't like how
       // the number suffix control looks or functions
@@ -73,7 +76,6 @@ export class SwPersonalFormComponent implements OnInit {
   }
 
   buildFormGroup(): FormGroup {
-
     // Keep validators in array even if there is only one
     // validator for scalability
     const group: any = {
@@ -86,7 +88,7 @@ export class SwPersonalFormComponent implements OnInit {
     return this.fb.group(group);
   }
 
-  hasError( control: any, errorCode: string): boolean {
+  hasError(control: any, errorCode: string): boolean {
     return control.dirty && control.invalid && control.hasError(errorCode);
   }
 
@@ -94,5 +96,4 @@ export class SwPersonalFormComponent implements OnInit {
     // from @ViewChild
     this.formRef.resetForm();
   }
-
 }

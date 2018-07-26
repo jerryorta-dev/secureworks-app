@@ -48,10 +48,7 @@ describe('Positive Integer Validator', () => {
     });
   });
 
-
-
   describe('is valid', () => {
-
     it('for number string', () => {
       const control = { value: '1' };
       const result = validatorFn(control as AbstractControl);
@@ -76,8 +73,5 @@ describe('Positive Integer Validator', () => {
 
       expect(result).toBeNull();
     });
-
   });
-
-
 });

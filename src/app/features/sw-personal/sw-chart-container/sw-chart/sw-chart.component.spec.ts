@@ -8,9 +8,8 @@ describe('SwChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SwChartComponent ]
-    })
-    .compileComponents();
+      declarations: [SwChartComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

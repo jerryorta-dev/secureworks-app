@@ -6,10 +6,7 @@ import { SwPersonalModule } from './features/sw-personal/sw-personal.module';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        SwHeaderModule,
-        SwPersonalModule,
-      ],
+      imports: [SwHeaderModule, SwPersonalModule],
       declarations: [AppComponent],
     }).compileComponents();
   }));
@@ -22,6 +19,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('mat-toolbar').textContent).toContain('SecureWorks Challenge App');
+    expect(compiled.querySelector('mat-toolbar').textContent).toContain(
+      'SecureWorks Challenge App'
+    );
   }));
 });

@@ -3,7 +3,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input, OnChanges,
+  Input,
+  OnChanges,
   OnInit,
   SimpleChanges,
   ViewEncapsulation,
@@ -16,7 +17,7 @@ import { SwD3GroupChartRender } from './sw-d3-group-chart-render';
 @Component({
   selector: 'sw-chart',
   templateUrl: './sw-chart.component.html',
-  styleUrls: [ './sw-chart.component.scss' ],
+  styleUrls: ['./sw-chart.component.scss'],
   preserveWhitespaces: false,
 
   // NOTE: Using ShadowDom
@@ -26,8 +27,7 @@ import { SwD3GroupChartRender } from './sw-d3-group-chart-render';
 export class SwChartComponent implements AfterContentInit {
   private chartSelector = '.sw-bar-chart';
 
-  constructor(private el: ElementRef) {
-  }
+  constructor(private el: ElementRef) {}
 
   ngAfterContentInit() {
     this.removeExtraStyles();
@@ -48,8 +48,9 @@ export class SwChartComponent implements AfterContentInit {
    * in the stylesUrl meta-items.
    */
   removeExtraStyles(): void {
-    const styles: HTMLElement[] = this.el.nativeElement.shadowRoot
-      .querySelectorAll('style') as HTMLElement[];
+    const styles: HTMLElement[] = this.el.nativeElement.shadowRoot.querySelectorAll(
+      'style'
+    ) as HTMLElement[];
 
     if (styles && styles.length) {
       styles.forEach((r: HTMLElement) => {
@@ -67,5 +68,4 @@ export class SwChartComponent implements AfterContentInit {
   //     this.renderD3();
   //   }
   // }
-
 }

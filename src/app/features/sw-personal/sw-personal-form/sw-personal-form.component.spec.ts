@@ -19,9 +19,8 @@ describe('SwPersonalFormComponent', () => {
         MatFormFieldModule,
         MatInputModule,
       ],
-      declarations: [ SwPersonalFormComponent ],
-    })
-      .compileComponents();
+      declarations: [SwPersonalFormComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -38,24 +37,24 @@ describe('SwPersonalFormComponent', () => {
    * this also tests component.buildFormGroup()
    */
   it('should create form', () => {
-    expect(component.personalDataForm.controls[ 'name' ]).toBeDefined();
-    expect(component.personalDataForm.controls[ 'friends' ]).toBeDefined();
-    expect(component.personalDataForm.controls[ 'age' ]).toBeDefined();
-    expect(component.personalDataForm.controls[ 'weight' ]).toBeDefined();
+    expect(component.personalDataForm.controls['name']).toBeDefined();
+    expect(component.personalDataForm.controls['friends']).toBeDefined();
+    expect(component.personalDataForm.controls['age']).toBeDefined();
+    expect(component.personalDataForm.controls['weight']).toBeDefined();
 
     // Form should be invalid by default
     expect(component.personalDataForm.invalid).toBe(true);
   });
 
   it('should submit personal items', () => {
-    component.personalDataForm.controls[ 'name' ].setValue('Jimmy Joe');
-    component.personalDataForm.controls[ 'friends' ].setValue('200');
-    component.personalDataForm.controls[ 'age' ].setValue('32');
-    component.personalDataForm.controls[ 'weight' ].setValue('190');
+    component.personalDataForm.controls['name'].setValue('Jimmy Joe');
+    component.personalDataForm.controls['friends'].setValue('200');
+    component.personalDataForm.controls['age'].setValue('32');
+    component.personalDataForm.controls['weight'].setValue('190');
 
     let user: PersonalData;
     // Subscribe to the Observable and store the user in a local variable.
-    component.onsubmit.subscribe((value) => user = value);
+    component.onsubmit.subscribe((value) => (user = value));
 
     component.onSubmitHandler();
 
@@ -66,8 +65,8 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error for required name', () => {
-    component.personalDataForm.controls[ 'name' ].setValue('Jimmy Joe');
-    component.personalDataForm.controls[ 'name' ].setValue('');
+    component.personalDataForm.controls['name'].setValue('Jimmy Joe');
+    component.personalDataForm.controls['name'].setValue('');
 
     let errors = {};
     const name = component.personalDataForm.controls['name'];
@@ -76,8 +75,9 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error for name more than 50 characters', () => {
-    component.personalDataForm.controls[ 'name' ]
-      .setValue( 'john jacob jingleheimer schmidt is your name and my name too');
+    component.personalDataForm.controls['name'].setValue(
+      'john jacob jingleheimer schmidt is your name and my name too'
+    );
 
     let errors = {};
     const name = component.personalDataForm.controls['name'];
@@ -86,8 +86,8 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error for required friends', () => {
-    component.personalDataForm.controls[ 'friends' ].setValue('10');
-    component.personalDataForm.controls[ 'friends' ].setValue('');
+    component.personalDataForm.controls['friends'].setValue('10');
+    component.personalDataForm.controls['friends'].setValue('');
 
     let errors = {};
     const friends = component.personalDataForm.controls['friends'];
@@ -96,7 +96,7 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error if friends are not positive integer', () => {
-    component.personalDataForm.controls[ 'friends' ].setValue('-1');
+    component.personalDataForm.controls['friends'].setValue('-1');
 
     let errors = {};
     const friends = component.personalDataForm.controls['friends'];
@@ -105,8 +105,8 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error for required age', () => {
-    component.personalDataForm.controls[ 'age' ].setValue('10');
-    component.personalDataForm.controls[ 'age' ].setValue('');
+    component.personalDataForm.controls['age'].setValue('10');
+    component.personalDataForm.controls['age'].setValue('');
 
     let errors = {};
     const age = component.personalDataForm.controls['age'];
@@ -115,7 +115,7 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error if age are not positive integer', () => {
-    component.personalDataForm.controls[ 'age' ].setValue('-1');
+    component.personalDataForm.controls['age'].setValue('-1');
 
     let errors = {};
     const age = component.personalDataForm.controls['age'];
@@ -124,8 +124,8 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error for required weight', () => {
-    component.personalDataForm.controls[ 'weight' ].setValue('10');
-    component.personalDataForm.controls[ 'weight' ].setValue('');
+    component.personalDataForm.controls['weight'].setValue('10');
+    component.personalDataForm.controls['weight'].setValue('');
 
     let errors = {};
     const weight = component.personalDataForm.controls['weight'];
@@ -134,7 +134,7 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should error if age are not positive number', () => {
-    component.personalDataForm.controls[ 'weight' ].setValue('-1.2');
+    component.personalDataForm.controls['weight'].setValue('-1.2');
 
     let errors = {};
     const age = component.personalDataForm.controls['weight'];
@@ -143,7 +143,6 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should not have error if pristine', () => {
-
     const spy = jasmine.createSpy('hasError').and.returnValue(true);
 
     const control: any = {
@@ -163,7 +162,6 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should not have error if dirty but valid', () => {
-
     const spy = jasmine.createSpy('hasError').and.returnValue(true);
 
     const control: any = {
@@ -183,7 +181,6 @@ describe('SwPersonalFormComponent', () => {
   });
 
   it('should have error if dirty and invalid', () => {
-
     const spy = jasmine.createSpy('hasError').and.returnValue(true);
 
     const control: any = {

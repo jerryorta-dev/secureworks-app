@@ -10,17 +10,16 @@ export interface ChartStore {
 const intialStore: ChartStore = {
   items: [],
   columns: ['name', 'age', 'weight', 'friends'],
-}
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class SwPersonalStoreService {
-
   // Names of groups appearing in a group chart
   store: BehaviorSubject<ChartStore> = new BehaviorSubject(intialStore);
 
-  add( val: PersonalData ): void {
+  add(val: PersonalData): void {
     const _store: ChartStore = this.store.getValue();
     _store.items.push(val);
     this.store.next(_store);
@@ -32,5 +31,4 @@ export class SwPersonalStoreService {
     _store.items.splice(index, 1);
     this.store.next(_store);
   }
-
 }

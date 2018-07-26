@@ -18,10 +18,13 @@ import { SwChartComponent } from './sw-chart-container/sw-chart/sw-chart.compone
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [
-    SwPersonalStoreService,
+  providers: [SwPersonalStoreService],
+  declarations: [
+    SwPersonalComponent,
+    SwPersonalFormComponent,
+    SwChartContainerComponent,
+    SwChartComponent,
   ],
-  declarations: [SwPersonalComponent, SwPersonalFormComponent, SwChartContainerComponent, SwChartComponent],
-  exports: [SwPersonalComponent]
+  exports: [SwPersonalComponent],
 })
-export class SwPersonalModule { }
+export class SwPersonalModule {}

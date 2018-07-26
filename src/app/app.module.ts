@@ -7,13 +7,7 @@ import { SwPersonalModule } from './features/sw-personal/sw-personal.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-
-    SwHeaderModule,
-    SwPersonalModule,
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, SwHeaderModule, SwPersonalModule],
   providers: [],
   bootstrap: [AppComponent],
 })

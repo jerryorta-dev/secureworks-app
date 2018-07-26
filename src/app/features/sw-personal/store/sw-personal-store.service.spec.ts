@@ -6,7 +6,7 @@ import { SwPersonalStoreService } from './sw-personal-store.service';
 describe('SwPersonalStoreService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SwPersonalStoreService]
+      providers: [SwPersonalStoreService],
     });
   });
 
@@ -24,21 +24,21 @@ describe('SwPersonalStoreService', () => {
       name: 'Jimmy Joe',
       age: '32',
       weight: '190',
-      friends: '100'
+      friends: '100',
     };
 
     const test2: PersonalData = {
       name: 'Jane Joe',
       age: '34',
       weight: '114',
-      friends: '20'
+      friends: '20',
     };
 
     const test3: PersonalData = {
       name: 'Johnny Joe',
       age: '40',
       weight: '210',
-      friends: '300'
+      friends: '300',
     };
 
     service.add(test1);
@@ -60,21 +60,21 @@ describe('SwPersonalStoreService', () => {
       name: 'Jimmy Joe',
       age: '32',
       weight: '190',
-      friends: '100'
+      friends: '100',
     };
 
     const test2: PersonalData = {
       name: 'Jane Joe',
       age: '34',
       weight: '114',
-      friends: '20'
+      friends: '20',
     };
 
     const test3: PersonalData = {
       name: 'Johnny Joe',
       age: '40',
       weight: '210',
-      friends: '300'
+      friends: '300',
     };
 
     service.add(test1);

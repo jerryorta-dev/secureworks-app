@@ -20,12 +20,8 @@ describe('SwPersonalComponent', () => {
         MatFormFieldModule,
         MatInputModule,
       ],
-      declarations: [
-        SwPersonalComponent,
-        SwPersonalFormComponent,
-      ],
-    })
-      .compileComponents();
+      declarations: [SwPersonalComponent, SwPersonalFormComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
