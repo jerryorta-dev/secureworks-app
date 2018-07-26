@@ -5,10 +5,10 @@
                   hintLabel="Max 50 characters">
     <mat-label>Your Name</mat-label>
     <input matInput #name formControlName="name" placeholder="Your Name">
-    <mat-error *ngIf="isValid(personalDataForm.controls['name'], 'required')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['name'], 'required')">
       Name is required
     </mat-error>
-    <mat-error *ngIf="isValid(personalDataForm.controls['name'], 'maxlength')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['name'], 'maxlength')">
       Max 50 characters
     </mat-error>
     <mat-hint align="end">{{name.value?.length || 0}}/50</mat-hint>
@@ -18,10 +18,10 @@
   <mat-form-field [appearance]="appearance">
     <mat-label>Your Age</mat-label>
     <input matInput #age formControlName="age" placeholder="Your Age">
-    <mat-error *ngIf="isValid(personalDataForm.controls['age'], 'required')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'required')">
       Age is required
     </mat-error>
-    <mat-error *ngIf="isValid(personalDataForm.controls['age'], 'positiveInteger')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['age'], 'positiveInteger')">
       Invalid Number Value
     </mat-error>
   </mat-form-field>
@@ -30,10 +30,10 @@
   <mat-form-field [appearance]="appearance">
     <mat-label>Your Weight</mat-label>
     <input matInput #weight formControlName="weight" placeholder="Your Weight">
-    <mat-error *ngIf="isValid(personalDataForm.controls['weight'], 'required')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'required')">
       Age is required
     </mat-error>
-    <mat-error *ngIf="isValid(personalDataForm.controls['weight'], 'positiveNumber')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['weight'], 'positiveNumber')">
       Invalid Number Value
     </mat-error>
   </mat-form-field>
@@ -43,10 +43,10 @@
                   hintLabel="How Many Friends Do You Have?">
     <mat-label>Friends</mat-label>
     <input matInput #weight formControlName="friends" placeholder="0" type="number">
-    <mat-error *ngIf="isValid(personalDataForm.controls['friends'], 'required')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'required')">
       Age is required
     </mat-error>
-    <mat-error *ngIf="isValid(personalDataForm.controls['friends'], 'positiveInteger')">
+    <mat-error *ngIf="hasError(personalDataForm.controls['friends'], 'positiveInteger')">
       Invalid Number Value
     </mat-error>
   </mat-form-field>

@@ -49,7 +49,7 @@ export class SwPersonalFormComponent implements OnInit {
     return this.fb.group(group);
   }
 
-  isValid( control: any, errorCode: string): boolean {
+  hasError( control: any, errorCode: string): boolean {
     return control.dirty && control.invalid && control.hasError(errorCode);
   }
 
