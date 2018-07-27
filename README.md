@@ -1,32 +1,127 @@
 # Secureworks Challenge App
 
-* [Run Dev](#run-dev)
+A production build of this challenge is hosted on firebase. Navigate to [https://works-app-303e3.firebaseapp.com/](https://works-app-303e3.firebaseapp.com/).
 
-## Run Dev
+## TOC
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* [Apps](#apps)
+* [Install](#install)
+* [Serve Dev](#serve-dev)
+* [Unit Tests](#unit-tests)
+* [lint](#lint)
+* [Dev Build](#dev-build)
+* [Production Build](#production-build)
+* [App Generated](#generated)
+* [Architecture](#architecture)
+* [Angular Element](#angular-element)
 
-## Running unit tests
+## Apps
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+There are two apps in this repo, `secureworks-app` and `sw-people`. Both apps have package.json scripts to lint, test, and run to simplify commands.
+
+The `secureworks-app` fulfills the requirements of the challenge, while `sw-people` is an attempt to create an Angular Elements bundle using a copy of the 
+same feature in the `secureworks-app`.
+
+All commands below are for the challenge in the `secureworks-app`.
+
+## Install
+
+`yarn` is preferred to install dependencies and to run scripts. 
+
+### commands
+
+  ```bash
+  npm install yarn -g
+  ```
+  
+  or with HomeBrew on a Mac
+  
+  ```bash
+  brew install yarn
+  ```
+  
+Then to install app
+
+ ```bash
+ yarn install
+ # or
+ npm install
+ ```
+
+## Serve Dev
+
+### commands
+
+  ```bash
+  npm run serve
+  # or
+  yarn serve
+  ```
+
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Unit Tests
+
+Testing scripts include code coverage and running a `lite-server` to view coverage results.
+
+### commands
+
+  ```bash
+  npm run test
+  # or
+  yarn test
+  ```
+  
+  Then to serve unit test code coverage in your browser:
+  
+  ```bash
+  npm run serve.cc
+  # or
+  yarn serve.cc
+  ```
 
 ## Lint
 
-run `yarn lint` or `npm run lint`. This will run prettier and then `ng lint`.
+A gulp task runs [Prettier](https://prettier.io/) completely before `ng lint secureworks-app`
+
+### commands
+
+  ```bash
+  npm run lint
+  # or
+  yarn lint
+  ```
+
 
 ## Dev Build
 
-Run `yarn serve` or  `ng build` to build the project. The build artifacts will be stored in the `dist/secureworks-app` directory.
+The build artifacts will be stored in the `dist/secureworks-app` directory.
 
+### commands
 
+  ```bash
+  npm run build
+  # or
+  yarn build
+  ```
+  
 ## Production Build
 
-Run `yarn build.prod` or  `ng build --aot --prod` to build the project. The build artifacts will be stored in the `dist/secureworks-app` directory.
+The build artifacts will be stored in the `dist/secureworks-app` directory.
 
-Then run 'npm run serve.prod` to serve the producion build locally.
+The build script runs  `ng build secureworks-app --aot --prod` to build the project. 
 
-## Hosting
-This app is hosted in firebase [here](https://works-app-303e3.firebaseapp.com). Only the hosting feature is used for demo purposes.
+### commands
+
+  ```bash
+  npm run build.prod
+  # or
+  yarn build.prod
+  ```
+  
+Then run `pm run serve.prod` to serve the production build locally.
+
+
 
 ## Generated
 
@@ -46,9 +141,34 @@ reserve 'shared' for modules, components, services shared among lazyloaded modul
 ### `./src/app/features/`
 
 I regard a feature as complete functionality of something... chat feature of an app. Semantics, it's a team or team lead decision. In this
-scenario, `sw-friends` will be a 'feature'.
+scenario, `sw-people` will be a feature with all supporting components and services, state engines,  organized in tree directory structure. 
+A feature should easily be transferable to another app or platform. 
 
-#### sw-friends
+In this directory `src/app/features/sw-people/`:
 
-The entire functionality of the challenge located in `./src/app/features/sw-friends`.
+`store`:  Store of people added.
 
+`sw-group-bar-chart-container`: Chart Wrapping Component that manages data flow to the chart.
+
+`sw-group-bar-chart-container/sw-group-bar-chart`: Chart Component, holds svg
+
+`sw-group-bar-chart-container/sw-group-bar-chart/sw-d3-group-chart-render.ts`: D3 Code to render chart. Since D3 Code can be complex, this is just 
+a separation of D3 Code from Angular for Legibility.
+
+`sw-personal-form`: Form Component For Data Entry
+
+`sw-personal-form/validators`: Custom validators for form.
+
+## Angular Element
+
+An Angular Element of the app is located in `./projects/sw-people`. While I was able to compile the element, the material
+styles and angular change detection does not work. So not successful.
+
+To compile and serve, run these command in order:
+
+1. `npm run build.people` or `yarn build.people`  
+2. `npm run package.people` or `yarn package.people`  
+3. `npm run serve.people` or `yarn serve.people`
+
+Your browser will load a page hosting the element. If it does not open the
+page, load the url `http://localhost:8080/` Chrome.
