@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve secureworks-app",
+    "build": "ng build secureworks-app",
     "build.people": "ng build sw-people --prod --output-hashing=none",
     "package.people": "cat dist/sw-people/{runtime,polyfills,scripts,main}.js > element-demo/sw-people-elements.js",
     "serve.people": "lite-server --config=server-config-elements",
@@ -14,7 +14,7 @@
     "build.prod": "ng build --aot --prod",
     "copy.icons": "gulp copy.icons",
     "deploy": "firebase deploy --only hosting",
-    "serve": "ng serve",
+    "serve": "ng serve secureworks-app",
     "serve.cc": "lite-server --config=server-config-coverage",
     "serve.prod": "ng serve --prod",
     "serve.dist": "lite-server --config=server-config-dist",
@@ -25,7 +25,8 @@
     "bump.alpa": "gulp bump.alpa",
     "bump.beta": "gulp bump.beta",
     "bump.build": "gulp bump.build",
-    "bump.rc": "gulp bump.rc"
+    "bump.rc": "gulp bump.rc",
+    "postinstall": "bash tools/scripts/postinstall.sh"
   },
   "private": true,
   "dependencies": {
