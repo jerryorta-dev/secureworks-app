@@ -1,3 +1,4 @@
+<h3>Enter basic statistics of your friends:</h3>
 <form class="personal-data-form" novalidate #formRef [formGroup]="personDataForm" (ngSubmit)="onSubmitHandler()">
 
   <!-- Name -->
@@ -20,7 +21,7 @@
       <mat-label>Age</mat-label>
       <input matInput #age formControlName="age" placeholder="0">
       <mat-error *ngIf="hasError(personDataForm.controls['age'], 'required')">
-        Age is required
+        Number is required
       </mat-error>
       <mat-error *ngIf="hasError(personDataForm.controls['age'], 'positiveInteger')">
         Invalid Number Value
@@ -32,7 +33,7 @@
       <mat-label>Weight</mat-label>
       <input matInput #weight formControlName="weight" placeholder="0">
       <mat-error *ngIf="hasError(personDataForm.controls['weight'], 'required')">
-        Age is required
+        Number is required
       </mat-error>
       <mat-error *ngIf="hasError(personDataForm.controls['weight'], 'positiveNumber')">
         Invalid Number Value
@@ -41,11 +42,11 @@
 
     <!-- Friends -->
     <mat-form-field [appearance]="appearance"
-                    hintLabel="How Many Friends?">
+                    hintLabel="Number of their friends">
       <mat-label>Friends</mat-label>
       <input matInput #weight formControlName="friends" placeholder="0">
       <mat-error *ngIf="hasError(personDataForm.controls['friends'], 'required')">
-        Age is required
+        Number is required
       </mat-error>
       <mat-error *ngIf="hasError(personDataForm.controls['friends'], 'positiveInteger')">
         Invalid Number Value

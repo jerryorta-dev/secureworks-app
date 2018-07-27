@@ -30,6 +30,12 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 @include ix-material-theme($app-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import 'app/features/sw-people/sw-personal-form/sw-personal-form.component.theme.scss';
+@import 'app/features/sw-people/sw-group-bar-chart-container/sw-group-bar-chart-container.component.theme';
+@import 'app/app.component.theme.scss';
+@include app-component($app-theme);
+@include sw-personal-form($app-theme);
+@include sw-group-bar-chart-container($app-theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }

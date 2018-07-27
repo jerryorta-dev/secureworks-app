@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
+  EventEmitter, HostBinding,
   OnInit,
   Output,
   ViewChild,
@@ -45,6 +45,8 @@ export class SwPersonalFormComponent implements OnInit {
    * reset the data, but not the state ( prisitine, untouched, etc ).
    */
   @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
+
+  @HostBinding('class.sw-personal-form') bind = true;
 
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 

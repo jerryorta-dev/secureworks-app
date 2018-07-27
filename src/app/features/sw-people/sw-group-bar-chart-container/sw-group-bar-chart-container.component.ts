@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component,
+  Component, HostBinding,
   OnDestroy,
   ViewChild,
   ViewEncapsulation,
@@ -25,6 +25,8 @@ export class SwGroupBarChartContainerComponent implements AfterViewInit, OnDestr
   hasChartData = false;
 
   @ViewChild(SwGroupBarChartComponent) groupGroupBarChart: SwGroupBarChartComponent;
+
+  @HostBinding('class.sw-group-bar-chart-container') bind = true;
 
   constructor(private storeService: SwPersonalStoreService, private cd: ChangeDetectorRef) {}
 

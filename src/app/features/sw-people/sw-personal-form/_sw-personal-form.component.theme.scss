@@ -1,0 +1,16 @@
+
+@mixin sw-personal-form($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  .sw-personal-form {
+    h3 {
+      color: map-get($primary, default);
+    }
+  }
+
+}
