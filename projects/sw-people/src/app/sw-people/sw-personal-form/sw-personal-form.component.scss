@@ -1,0 +1,46 @@
+.personal-data-form {
+
+  // Allows input fields to width of 100%
+  display: flex;
+  flex-direction: column;
+
+  .mat-form-field {
+    margin-bottom: 20px;
+  }
+
+  // contains input fields for age, weight, and number of friends
+  .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // middle input field(s)
+    .mat-form-field {
+      width: 100%;
+      margin: 0 5px;
+    }
+
+    // left most input field
+    .mat-form-field:first-child {
+      margin-left: 0;
+    }
+
+    // right most input field
+    .mat-form-field:last-child {
+      margin-right: 0;
+    }
+  }
+
+  // reset and Add Person buttons
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    .reset {
+      margin-right: 20px;
+    }
+  }
+
+}
