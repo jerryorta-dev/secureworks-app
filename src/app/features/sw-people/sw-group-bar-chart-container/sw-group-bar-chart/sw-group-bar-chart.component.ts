@@ -19,12 +19,10 @@ import { SwD3GroupChartRender } from './sw-d3-group-chart-render';
   templateUrl: './sw-group-bar-chart.component.html',
   styleUrls: ['./sw-group-bar-chart.component.scss'],
   preserveWhitespaces: false,
-
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwGroupBarChartComponent {
-  private chartSelector = '.sw-bar-chart';
 
   constructor(private el: ElementRef) {}
 
