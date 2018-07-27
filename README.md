@@ -146,6 +146,8 @@ A feature should easily be transferable to another app or platform.
 
 In this directory `src/app/features/sw-people/`:
 
+`sw-people.module.ts`: Module containing entire `sw-people` feature. Allows easily to transfer to a platform or another app.
+
 `store`:  Store of people added.
 
 `sw-group-bar-chart-container`: Chart Wrapping Component that manages data flow to the chart.
