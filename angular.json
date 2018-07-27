@@ -29,7 +29,8 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +120,133 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sw-people": {
+      "root": "projects/sw-people/",
+      "sourceRoot": "projects/sw-people/src",
+      "projectType": "application",
+      "prefix": "sw",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sw-people",
+            "index": "projects/sw-people/src/index.html",
+            "main": "projects/sw-people/src/main.ts",
+            "polyfills": "projects/sw-people/src/polyfills.ts",
+            "tsConfig": "projects/sw-people/tsconfig.app.json",
+            "assets": [
+              "projects/sw-people/src/favicon.ico",
+              "projects/sw-people/src/assets"
+            ],
+            "styles": [
+              "projects/sw-people/src/styles.scss"
+            ],
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sw-people/src/environments/environment.ts",
+                  "with": "projects/sw-people/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sw-people:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sw-people:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sw-people:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sw-people/src/test.ts",
+            "polyfills": "projects/sw-people/src/polyfills.ts",
+            "tsConfig": "projects/sw-people/tsconfig.spec.json",
+            "karmaConfig": "projects/sw-people/karma.conf.js",
+            "styles": [
+              "projects/sw-people/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/sw-people/src/favicon.ico",
+              "projects/sw-people/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sw-people/tsconfig.app.json",
+              "projects/sw-people/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sw-people-e2e": {
+      "root": "projects/sw-people-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/sw-people-e2e/protractor.conf.js",
+            "devServerTarget": "sw-people:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sw-people:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/sw-people-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
