@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   OnDestroy,
   ViewChild,
@@ -21,16 +22,22 @@ import { SwGroupBarChartComponent } from './sw-group-bar-chart/sw-group-bar-char
 export class SwGroupBarChartContainerComponent implements AfterViewInit, OnDestroy {
   private storeSub: Subscription = Subscription.EMPTY;
 
+  hasChartData = false;
+
   @ViewChild(SwGroupBarChartComponent) groupGroupBarChart: SwGroupBarChartComponent;
 
-  constructor(private storeService: SwPersonalStoreService) {}
+  constructor(private storeService: SwPersonalStoreService, private cd: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.storeSub = this.storeService.store.subscribe((result: ChartStore) => {
-      /* istanbul ignore else */
       if (result.items.length) {
+        this.hasChartData = true;
         this.groupGroupBarChart.renderD3(result);
+      } else {
+        this.hasChartData = false;
       }
+
+      this.cd.markForCheck();
     });
   }
 

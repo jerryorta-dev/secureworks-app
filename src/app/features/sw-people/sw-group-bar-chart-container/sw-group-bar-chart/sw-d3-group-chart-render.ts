@@ -31,7 +31,7 @@ export class SwD3GroupChartRender {
 
     const y: any = d3.scaleLinear().rangeRound([height, 0]);
 
-    const z: ScaleOrdinal<string, any> = d3.scaleOrdinal().range(['#98abc5', '#8a89a6', '#7b6888']);
+    const z: ScaleOrdinal<string, any> = d3.scaleOrdinal().range(['#3f51b5', '#e91e63', '#ff9800']);
 
     const keys = store.columns.slice(1);
 

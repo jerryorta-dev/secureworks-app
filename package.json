@@ -11,7 +11,7 @@
     "test": "ng test secureworks-app --code-coverage",
     "e2e": "ng e2e",
     "lint": "gulp lint",
-    "build.prod": "ng build --aot --prod",
+    "build.prod": "ng build secureworks-app --aot --prod",
     "copy.icons": "gulp copy.icons",
     "deploy": "firebase deploy --only hosting",
     "serve": "ng serve secureworks-app",

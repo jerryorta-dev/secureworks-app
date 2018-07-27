@@ -1,3 +1,6 @@
-<div>
+<div class="sw-chart-container">
   <sw-group-bar-chart #groupGroupBarChart></sw-group-bar-chart>
+  <div class="sw-chart-no-data" *ngIf="!hasChartData">
+    <div>No Data</div>
+  </div>
 </div>

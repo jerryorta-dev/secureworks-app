@@ -25,6 +25,11 @@ export class SwPersonalStoreService {
     this.store.next(_store);
   }
 
+  /**
+   * Not utilized yet. Thought is to
+   * have a way to remove items from chart.
+   * @param index
+   */
   remove(index: number): void {
     const _store: ChartStore = this.store.getValue();
     // should have items if using this method
