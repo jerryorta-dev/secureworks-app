@@ -23,7 +23,6 @@ import { SwD3GroupChartRender } from './sw-d3-group-chart-render';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwGroupBarChartComponent {
-
   constructor(private el: ElementRef) {}
 
   /**

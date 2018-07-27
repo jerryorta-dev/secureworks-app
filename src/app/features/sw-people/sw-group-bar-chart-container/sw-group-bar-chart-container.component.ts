@@ -14,7 +14,7 @@ import { SwGroupBarChartComponent } from './sw-group-bar-chart/sw-group-bar-char
 @Component({
   selector: 'sw-group-bar-chart-container',
   templateUrl: './sw-group-bar-chart-container.component.html',
-  styleUrls: [ './sw-group-bar-chart-container.component.scss' ],
+  styleUrls: ['./sw-group-bar-chart-container.component.scss'],
   preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,13 +26,11 @@ export class SwGroupBarChartContainerComponent implements AfterViewInit, OnDestr
 
   @ViewChild(SwGroupBarChartComponent) groupGroupBarChart: SwGroupBarChartComponent;
 
-  constructor( private storeService: SwPersonalStoreService,
-               private cd: ChangeDetectorRef ) {
-  }
+  constructor(private storeService: SwPersonalStoreService, private cd: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    this.storeSub = this.storeService.store.subscribe(( result: ChartStore ) => {
-      if ( result.items.length ) {
+    this.storeSub = this.storeService.store.subscribe((result: ChartStore) => {
+      if (result.items.length) {
         this.hasChartData = true;
         this.groupGroupBarChart.renderD3(result);
       } else {

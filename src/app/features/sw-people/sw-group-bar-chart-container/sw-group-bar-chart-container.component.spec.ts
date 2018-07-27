@@ -16,10 +16,16 @@ describe('SwGroupBarChartContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SwGroupBarChartContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    // Component has it's on change detection in the ngAfterViewInit
+    // fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO unit test the result.items.length condition path
+  // http://mylifeandcode.blogspot.com/2017/03/how-to-mock-out-child-components-in.html
+  // This example is not working, not sure why
 });
