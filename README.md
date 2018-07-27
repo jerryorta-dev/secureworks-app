@@ -1,6 +1,6 @@
 # Secureworks Challenge App
 
-* [Run Dev](#Run-Dev)
+* [Run Dev](#run-dev)
 
 ## Run Dev
 
