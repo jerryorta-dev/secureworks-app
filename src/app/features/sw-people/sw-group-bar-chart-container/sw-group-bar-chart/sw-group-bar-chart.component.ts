@@ -1,18 +1,6 @@
-import {
-  AfterContentInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewEncapsulation,
-} from '@angular/core';
-import { hasValueIn } from '@uiux/cdk/object';
+import { ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { ChartStore } from '../../store/sw-personal-store.service';
-import { PersonalData } from '../../sw-personal-form/sw-personal-form.component';
-import { SwD3GroupChartRender } from './sw-d3-group-chart-render';
+import { SwD3GroupChartRender, renderD3GroupChart } from './sw-d3-group-chart-render';
 
 @Component({
   selector: 'sw-group-bar-chart',
@@ -32,6 +20,7 @@ export class SwGroupBarChartComponent {
     /* istanbul ignore else */
     if (data && data.items && data.items.length) {
       SwD3GroupChartRender.render(this.el.nativeElement, data);
+      renderD3GroupChart(this.el.nativeElement, data);
     }
   }
 }

@@ -8,7 +8,12 @@ export interface ChartStore {
 }
 
 export const intialChartStore: ChartStore = {
-  items: [],
+  items: [{
+    name: 'John Doe',
+    age: 35,
+    weight: 200,
+    friends: 500
+  }],
   columns: ['name', 'age', 'weight', 'friends'],
 };
 

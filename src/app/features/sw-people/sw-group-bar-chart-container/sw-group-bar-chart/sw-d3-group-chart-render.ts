@@ -4,8 +4,33 @@ import { ScaleOrdinal } from 'd3-scale';
 import { Selection } from 'd3-selection';
 import { ChartStore } from '../../store/sw-personal-store.service';
 
+/**
+ *
+ * @param el HTMLElement
+ * @param store is raw data ( not observable )
+ */
+export function renderD3GroupChart( el: HTMLElement, store: ChartStore ): void {
+  // DATA
+  const { items } = store;
+
+  // D3-SELECT
+  const svg: Selection<any, any, HTMLElement, any> =
+    d3.select(el.querySelector('svg') as SVGSVGElement);
+
+  // SVG PARAMS
+  const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+  const width = +svg.attr('width') - margin.left - margin.right;
+  const height = +svg.attr('height') - margin.top - margin.bottom;
+  const g = svg
+    .append('g')
+    .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
+
+
+  console.log(svg);
+}
+
 export class SwD3GroupChartRender {
-  static render(el: HTMLElement, store: ChartStore): void {
+  static render( el: HTMLElement, store: ChartStore ): void {
     const data = store.items;
 
     const domSvg: SVGSVGElement = el.querySelector('svg') as SVGSVGElement;
@@ -24,30 +49,30 @@ export class SwD3GroupChartRender {
 
     const x0: ScaleBand<string> = d3
       .scaleBand()
-      .rangeRound([0, width])
+      .rangeRound([ 0, width ])
       .paddingInner(0.1);
 
     const x1: ScaleBand<string> = d3.scaleBand().padding(0.05);
 
-    const y: any = d3.scaleLinear().rangeRound([height, 0]);
+    const y: any = d3.scaleLinear().rangeRound([ height, 0 ]);
 
-    const z: ScaleOrdinal<string, any> = d3.scaleOrdinal().range(['#3f51b5', '#e91e63', '#ff9800']);
+    const z: ScaleOrdinal<string, any> = d3.scaleOrdinal().range([ '#3f51b5', '#e91e63', '#ff9800' ]);
 
     const keys = store.columns.slice(1);
 
     x0.domain(
-      data.map(function(d) {
+      data.map(function( d ) {
         return d.name;
-      })
+      }),
     );
 
-    x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+    x1.domain(keys).rangeRound([ 0, x0.bandwidth() ]);
 
     y.domain([
       0,
-      d3.max(data, function(d) {
-        return d3.max(keys, function(key) {
-          return d[key];
+      d3.max(data, function( d ) {
+        return d3.max(keys, function( key ) {
+          return d[ key ];
         });
       }),
     ]).nice();
@@ -57,32 +82,32 @@ export class SwD3GroupChartRender {
       .data(data)
       .enter()
       .append('g')
-      .attr('transform', function(d) {
+      .attr('transform', function( d ) {
         return 'translate(' + x0(d.name) + ',0)';
       })
       .selectAll('rect')
-      .data(function(d) {
-        return keys.map(function(key) {
-          return { key: key, value: d[key] };
+      .data(function( d ) {
+        return keys.map(function( key ) {
+          return { key: key, value: d[ key ] };
         });
       })
       .enter()
       .append('rect')
-      .attr('x', function(d) {
+      .attr('x', function( d ) {
         return x1(d.key);
       })
-      .attr('y', function(d) {
+      .attr('y', function( d ) {
         return y(d.value);
       })
       .attr('width', x1.bandwidth())
-      .attr('height', function(d) {
+      .attr('height', function( d ) {
         return height - y(d.value);
       })
       .attr(
         'fill',
-        (d): any => {
+        ( d ): any => {
           return z(d.key);
-        }
+        },
       );
 
     g.append('g')
@@ -110,7 +135,7 @@ export class SwD3GroupChartRender {
       .data(keys.slice().reverse())
       .enter()
       .append('g')
-      .attr('transform', function(d, i) {
+      .attr('transform', function( d, i ) {
         return 'translate(0, ' + i * 20 + ')';
       });
 
@@ -126,7 +151,7 @@ export class SwD3GroupChartRender {
       .attr('x', width - 24)
       .attr('y', 9.5)
       .attr('dy', '0.32em')
-      .text(function(d) {
+      .text(function( d ) {
         return d;
       });
   }
